@@ -1,4 +1,7 @@
-DROP DATABASE IF EXISTS ssb01; CREATE DATABASE ssb01; USE ssb01;
+DROP DATABASE IF EXISTS ssb01; 
+CREATE DATABASE ssb01; 
+USE ssb01;
+
 CREATE TABLE            customer(
   C_CustomerKey         INT(11)       NOT NULL,
   C_Name                VARCHAR(25)   NOT NULL,
@@ -8,7 +11,9 @@ CREATE TABLE            customer(
   C_Region              VARCHAR(12)   NOT NULL,
   C_Phone               VARCHAR(15)   NOT NULL,
   C_MktSegment          VARCHAR(10)   NOT NULL,
-  KEY(C_City) USING CLUSTERED COLUMNSTORE);
+  KEY(C_City) USING CLUSTERED COLUMNSTORE
+);
+
 CREATE TABLE            dim_date(
   D_DateKey             INT(11)       NOT NULL,
   D_Date                CHAR(18)      NULL DEFAULT NULL,
@@ -27,7 +32,9 @@ CREATE TABLE            dim_date(
   D_LastDayInMonthFl    TINYINT(4)    NULL DEFAULT NULL,
   D_HolidayFl           TINYINT(4)    NULL DEFAULT NULL,
   D_WeekDayFl           TINYINT(4)    NULL DEFAULT NULL,
-  KEY(D_Year) USING CLUSTERED COLUMNSTORE);
+  KEY(D_Year) USING CLUSTERED COLUMNSTORE
+);
+
 CREATE TABLE            part(
   P_PartKey             INT(11)       NOT NULL,
   P_Name                VARCHAR(25)   NOT NULL,
@@ -38,7 +45,9 @@ CREATE TABLE            part(
   P_Type                VARCHAR(25)   NOT NULL,
   P_Size                TINYINT(4)    NOT NULL,
   P_Container           CHAR(10)      NOT NULL,
-  KEY(P_MFGR) USING CLUSTERED COLUMNSTORE);
+  KEY(P_MFGR) USING CLUSTERED COLUMNSTORE
+);
+
 CREATE TABLE            supplier(
   S_SuppKey             INT(11)       NOT NULL,
   S_Name                VARCHAR(25)   NOT NULL,
@@ -47,7 +56,9 @@ CREATE TABLE            supplier(
   S_Nation              VARCHAR(10)   NOT NULL,
   S_Region              VARCHAR(12)   NOT NULL,
   S_Phone               VARCHAR(15)   NOT NULL,
-  KEY(S_City) USING CLUSTERED COLUMNSTORE);
+  KEY(S_City) USING CLUSTERED COLUMNSTORE
+);
+
 CREATE TABLE            lineorder(
   LO_OrderKey           BIGINT(20)    NOT NULL,
   LO_LineNumber         TINYINT(4)    NOT NULL,
@@ -66,4 +77,5 @@ CREATE TABLE            lineorder(
   LO_Tax                TINYINT(4)    NULL DEFAULT NULL,
   LO_CommitDateKey      INT(11)       NOT NULL,
   LO_ShipMode           VARCHAR(10)   NULL DEFAULT NULL,
-  KEY(LO_OrderDateKey) USING CLUSTERED COLUMNSTORE);
+  KEY(LO_OrderDateKey) USING CLUSTERED COLUMNSTORE
+);
